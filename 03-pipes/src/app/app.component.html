@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Pipes</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm mt-5">
+                    <h1>Pipes</h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-5">
+                <div class="col-sm">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Variable</th>
+                                <th>Pipe</th>
+                                <th>Salida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>{{ nameLowerCase }}</th>
+                                <td>Pipe personalized | capitalize
+                                </td>
+                                <td>{{ nameLowerCase | capitalize }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ name }}</th>
+                                <td>Uppercase</td>
+                                <td>{{ name | uppercase }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ name }}</th>
+                                <td>lowercase</td>
+                                <td>{{ name | lowercase }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ name }}</th>
+                                <td>slice:2</td>
+                                <td>{{ name | slice:2 }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ name }}</th>
+                                <td>slice:0:4</td>
+                                <td>{{ name | slice:0:4 }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ arrNames }}</th>
+                                <td>slice:0:4</td>
+                                <td>{{ arrNames | slice:2:4 }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ PI }}</th>
+                                <td>Decimal default</td>
+                                <td>{{ PI | number }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ PI }}</th>
+                                <td>Decimal number:'3.2-2'</td>
+                                <td>{{ PI | number:'3.2-2' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ PI }}</th>
+                                <td>Decimal number:'.1-4'</td>
+                                <td>{{ PI | number:'.1-4'}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ money }}</th>
+                                <td>currency</td>
+                                <td>{{ money | currency }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ money }}</th>
+                                <td>currency:'EUR'</td>
+                                <td>{{ money | currency:'EUR' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ money }}</th>
+                                <td>currency:'COP':'symbol-narrow'</td>
+                                <td>{{ money | currency:'COP':'symbol-narrow'}}<td>
+                            </tr>
+                            <tr>
+                                <th>{{ money }}</th>
+                                <td>currency:'EUR':'symbol-narrow' </td>
+                                <td>{{ money | currency:'EUR':'symbol-narrow' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ money }}</th>
+                                <td>currency:'EUR':'symbol-narrow':'1.1-3'</td>
+                                <td>{{ money | currency:'EUR':'symbol-narrow':'1.1-3' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ value }}</th>
+                                <td>percent</td>
+                                <td>{{ value | percent }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ value }}</th>
+                                <td>percent:'.2-2'</td>
+                                <td>{{ value | percent:'.2-2' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ pirate }}</th>
+                                <td>json</td>
+                                <td><pre>{{ pirate | json}}</pre></td>
+                            </tr>
+                            <tr>
+                                <th>{{ objectPromise }}</th>
+                                <td>async</td>
+                                <td>{{ objectPromise | async }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ currentDate }}</th>
+                                <td>date</td>
+                                <td>{{ currentDate | date }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ currentDate }}</th>
+                                <td>date:'short'</td>
+                                <td>{{ currentDate | date:'short' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ currentDate }}</th>
+                                <td>date:'medium'</td>
+                                <td>{{ currentDate | date:'medium' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ currentDate }}</th>
+                                <td>date:'dd/MM/yyyy'</td>
+                                <td>{{ currentDate | date:'dd/MM/yyyy' }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ currentDate }}</th>
+                                <td> {{ language }} <br/>
+                                    <button (click)="changeLanguege('en')"  class="mr-1 btn btn-primary">Inglés</button>
+                                    <button (click)="changeLanguege('es-CO')"  class="mr-1 btn btn-secondary">Español</button>
+                                    <button (click)="changeLanguege('fr')"  class="mr-1 btn btn-success">Francés</button>
+                                </td>
+                                <td>{{ currentDate | date:'EEEE, dd MMMM, yyyy':'': language }}</td>
+                            </tr>
+                            <tr>
+                                <th>{{ password }}</th>
+                                <td>
+                                    Pipe show password ( {{ isShowPassword }} )
+                                    <button (click)="isShowPassword = !isShowPassword"  class="mr-1 btn btn-primary">Show Password</button>
+                                </td>
+                                <td>{{ password | showPassword: isShowPassword }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-4 mb-4">
+                <div class="col">
+                    <iframe [src]="videoUrl | safeUrl " width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
