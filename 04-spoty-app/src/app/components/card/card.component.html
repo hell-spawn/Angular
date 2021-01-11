@@ -1,0 +1,15 @@
+<div class="card puntero" *ngFor="let item of items" (click)="showArtist(item)">
+	<img [src]="item.images | imageNotFound" class="card-img-top" [alt]="item.name">
+	<div class="card-body">
+		<h5 class="card-title">{{ item.name }}</h5>
+		<p class="card-text">
+			<ng-template [ngIf]="item.hasOwnProperty('artists')">
+				<span class="badge badge-primary" *ngFor="let artist of item.artists"> {{ artist.name }}</span>
+			</ng-template>
+			<ng-template [ngIf]="item.hasOwnProperty('genres')">
+				<span class="badge badge-primary" *ngFor="let genre of item.genres"> {{ genre }}</span>
+			</ng-template>
+		</p>
+	</div>
+</div>
+

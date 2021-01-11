@@ -1,0 +1,16 @@
+<div class="row">
+	<input #searhTerm class="form-control" placeholder="Search Artist" (keyup)="searchArtist(searhTerm.value)">
+</div>
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div *ngIf="hasError" class="row mt-5 alert alert-danger animated fadeIn">
+	<div class="col">
+		<h4>Error: {{ error.status  }}</h4>
+		<p>{{ error.message }}</p>
+	</div>
+</div>
+
+<div  *ngIf="!isLoading && !hasError" class="card-columns m-5">
+	<app-card [items]="artists"></app-card>
+</div>

@@ -1,0 +1,12 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+<div *ngIf="hasError" class="row alert alert-danger animated fadeIn">
+	<div class="col">
+		<h4>Error: {{ error.status  }}</h4>
+		<p>{{ error.message }}</p>
+	</div>
+</div>
+
+<div *ngIf="!isLoading" class="card-columns animated fadeIn">
+	<app-card [items]="newAlbumReleases" ></app-card>
+</div>
