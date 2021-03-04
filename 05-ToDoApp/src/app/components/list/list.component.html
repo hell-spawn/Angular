@@ -1,0 +1,18 @@
+<ion-list #ionlist >
+	<ion-item-sliding *ngFor="let taskList of taskListService.taskLists | filterTaskList:isComplete">
+		<ion-item-options side="start">
+			<ion-item-option (click)="modifyTaskList(ionlist, taskList)">
+				<ion-icon slot="icon-only" name="pencil"></ion-icon>
+			</ion-item-option>
+		</ion-item-options>
+		<ion-item color="dark"(click)="loadTaskList(taskList.id)">
+			<ion-label>{{ taskList.title }}</ion-label>
+			<ion-note slot="end">{{ taskList.listTaskItems.length }} Items</ion-note>
+		</ion-item>
+		<ion-item-options side="end">
+			<ion-item-option (click)="deleteTaskList(taskList)" color="danger">
+				<ion-icon slot="icon-only" name="trash"></ion-icon>
+			</ion-item-option>
+		</ion-item-options>
+	</ion-item-sliding>
+</ion-list>
