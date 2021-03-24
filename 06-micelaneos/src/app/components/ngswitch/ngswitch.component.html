@@ -1,0 +1,21 @@
+<div>
+	<input type="radio" name="colors" (click)="type='success'">success
+	<input type="radio" name="colors" (click)="type='danger'">danger
+	<input type="radio" name="colors" (click)="type='warning'">warning
+	<input type="radio" name="colors" (click)="type='info'">info
+</div>
+
+<div [ngSwitch]="type" class="col" style="margin: 1rem 0">
+	<div *ngSwitchCase="'success'" class="alert alert-success" role="alert">
+		A simple success alert—check it out!
+	</div>
+	<div *ngSwitchCase="'danger'" class="alert alert-danger" role="alert">
+		A simple danger alert—check it out!
+	</div>
+	<div *ngSwitchCase="'warning'" class="alert alert-warning" role="alert">
+		A simple warning alert—check it out!
+	</div>
+	<div *ngSwitchDefault class="alert alert-info" role="alert">
+		A simple info alert—check it out!
+	</div>
+</div>

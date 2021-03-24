@@ -1,0 +1,7 @@
+.eslintrc.*
+node_modules
+dist
+jest.config.js
+fixtures
+coverage
+__snapshots__
