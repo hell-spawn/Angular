@@ -1,0 +1,210 @@
+<h4>Formularios <small> Reactive </small></h4>
+<hr />
+<form autocomplete="off" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Name</label>
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Name"
+          formControlName="name"
+          [class.is-invalid]="nameIsInvalid"
+        />
+        <small *ngIf="nameIsInvalid" class="text-danger"
+          >Name should be atleast 5 letter</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Last Name</label>
+      <div class="col-8">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Last Name"
+          formControlName="lastName"
+          [class.is-invalid]="lastNameIsInvalid"
+        />
+        <small *ngIf="lastNameIsInvalid" class="text-danger"
+          >Last Name should be atleast 5 letter</small
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Email</label>
+    <div class="col-8">
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        [class.is-invalid]="emailIsInvalid"
+      />
+      <small *ngIf="emailIsInvalid" class="text-danger">
+        Email should format valid
+      </small>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">User</label>
+    <div class="col-8">
+      <input
+        class="form-control"
+        type="User"
+        placeholder="User"
+        formControlName="user"
+        [class.is-invalid]="
+          userIsInvalid || userForm.hasError('userExists', 'user')
+        "
+      />
+      <small *ngIf="userIsInvalid" class="text-danger">
+        User is required
+      </small>
+      <small
+        *ngIf="userForm.hasError('userExists', 'user')"
+        class="text-danger"
+      >
+        User exists
+      </small>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Password</label>
+    <div class="col-8">
+      <input
+        class="form-control"
+        type="password"
+        placeholder="password"
+        formControlName="password"
+        [class.is-invalid]="passwordIsInvalid"
+      />
+      <small *ngIf="passwordIsInvalid" class="text-danger">
+        Password is required
+      </small>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Confirm Password</label>
+    <div class="col-8">
+      <input
+        class="form-control"
+        type="password"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+        [class.is-invalid]="confirmPasswordIsInvalid"
+      />
+      <small *ngIf="confirmPasswordIsInvalid" class="text-danger">
+        Confirm Password is required
+      </small>
+      <small *ngIf="userForm.hasError('noMatchPassword')" class="text-danger">
+        Not matching Password
+      </small>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Age:</label>
+    <div class="col-8">
+      <input
+        class="form-control"
+        type="number"
+        placeholder="Age"
+        formControlName="age"
+        [class.is-invalid]="ageIsInvalid"
+      />
+      <small *ngIf="ageIsInvalid" class="text-danger">
+        Age should mayor to 18 ages
+      </small>
+    </div>
+  </div>
+  <div class="form-group row" formGroupName="address">
+    <label class="col-2 col-form-label">Address</label>
+    <div class="col-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="City"
+        formControlName="city"
+        [class.is-invalid]="cityIsInvalid"
+      />
+      <small *ngIf="cityIsInvalid" class="text-danger">
+        City should be atleast 5 letter
+      </small>
+    </div>
+    <div class="col-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Province"
+        formControlName="province"
+        [class.is-invalid]="provinceIsInvalid"
+      />
+      <small *ngIf="provinceIsInvalid" class="text-danger">
+        City should be atleast 5 letter
+      </small>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Hobbie</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="hobbies">
+          <tr *ngFor="let control of hobbies.controls; let i = index">
+            <td>{{ 1 + i }}</td>
+            <td>
+              <input type="text" class="form-control" [formControlName]="i" />
+            </td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-danger btn-block"
+                (click)="removeHobbie(i)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col">
+      <button
+        type="button"
+        class="btn btn-outline-primary btn-block"
+        (click)="addHobbie()"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary btn-block">
+        Save
+      </button>
+    </div>
+  </div>
+</form>
+
+<hr />
+
+<pre>
+Estado Formulario: {{ userForm.valid }}
+<br/>
+Status:            {{ userForm.status }}
+<br/>
+ {{ userForm.value | json }}
+</pre>
