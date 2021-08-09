@@ -1,0 +1,54 @@
+<h1>List Heroes</h1>
+<hr>
+<div class="row">
+  <div class="col text-end">
+    <button class="btn btn-primary w-25" type="button" [routerLink]="['/hero/new']">
+      <i class="fa fa-plus"></i>
+      Add
+    </button>
+  </div>
+</div>
+<div class="row mt-3">
+  <div *ngIf="loading" class="alert alert-info text-center">
+    <h4>Loading</h4>
+    <i class="fa fa-sync-alt fa-spin fa-3x"></i>
+    <p>Wait a moment</p>
+  </div>
+  <div *ngIf="!loading && heroes.lenght > 0" class="alert alert-warning text-center">
+    <h4>Not found records</h4>
+    <i class="fa fa-exclamation fa-3x"></i>
+</div>
+<div class="row mt-3">
+  <div class="col">
+    <table *ngIf="!loading" class="table fadeIn">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Power</th>
+          <th scope="col">Status</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of heroes; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.power }}</td>
+          <td>
+              <label *ngIf="hero.alive" class="badge bg-success"> Alive </label>
+              <label *ngIf="!hero.alive" class="badge bg-danger"> Dead</label>
+          </td>
+          <td>
+            <button class="btn btn-primary me-1" [routerLink]="['/hero', hero.id]">
+              <i class="fa fa-pen"></i>
+            </button>
+            <button class="btn btn-danger" (click)="deleteHero(hero)" >
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
