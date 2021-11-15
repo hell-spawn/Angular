@@ -1,0 +1,17 @@
+<div class="col">
+  <swiper [config]="config" #swiperMovies >
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let movie of movies" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780' + movie.backdrop_path + ')', 'background-size':'cover'}">
+        <div class="movie-description">
+          <h3>{{movie.title}}</h3>
+          <p>
+          {{ movie.overview | slice:0:200 }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </swiper>
+</div>

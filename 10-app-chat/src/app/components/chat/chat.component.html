@@ -1,0 +1,45 @@
+<div class="chat">
+  <div class="chat-title">
+    <h1>Jhon Doe</h1>
+    <h2>HellSpawn</h2>
+    <figure class="avatar">
+      <img src="https://reqres.in/img/faces/8-image.jpg" alt="avatar">
+    </figure>
+  </div>
+  <div class="messages">
+    <div id="containerMessage" class="messages-content">
+      <div class="messages-container">
+        <div class="message message-personal new" *ngFor="let chatMessage of chatMessages">
+          {{ chatMessage.message }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="message-box">
+    <form>
+      <textarea type="text" class="message-input" #message placeholder="Type message..."></textarea>
+      <button type="submit" class="message-submit" (click)="sendMessage(message)"
+       >Send</button>
+    </form>
+  </div>
+
+</div>
+
+<!--
+        <div class="message new">
+            Hi there, I'm Fabio and you?
+            <div class="timestamp">20:34</div>
+        </div>
+        <div class="message message-personal new">
+            dsfsadf
+            <div class="timestamp">21:28</div>
+        </div>
+        <div class="message message-personal new">dsfasdf</div>
+        <div class="message new">
+          Nice to meet you</div>
+          <div class="message message-personal new">
+            asdf
+            <div class="timestamp">21:30</div>
+          </div>
+
+-->

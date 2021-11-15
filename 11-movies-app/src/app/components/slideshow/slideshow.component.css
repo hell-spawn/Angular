@@ -1,0 +1,14 @@
+.swiper-slide {
+  height: 480px;
+}
+
+
+.movie-description {
+  background-color: rgba(10, 10, 10, 0.5);
+  bottom: 0;
+  padding: 5px 30px;
+  position: absolute;
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+  height: 140px;
+}

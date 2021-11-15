@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/home']">Navbar</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <div class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchField (keyup.enter)="searchMovies(searchField.value)">
+        <button class="btn btn-outline-success" type="submit" (click)="searchMovies(searchField.value)"
+        >Search</button>
+      </div>
+    </div>
+  </div>
+</nav>

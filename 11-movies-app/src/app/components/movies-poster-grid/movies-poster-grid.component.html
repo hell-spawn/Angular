@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-3 mb-5" *ngFor="let movie of movies">
+    <img [src]="movie.poster_path | poster" alt="{{movie.title}}" class="img-fluid poster">
+    <div>
+      <h3 class="mt-2 title-poster">{{ movie.title}}</h3>
+      <div class="row">
+        <div class="col-10 text-white">
+          <ng-rating-bar class="ng-star-bar" [value]="movie.vote_average" [ratingCount]="10" [styles]="{fontSize: '28px'}" [disabled]="true" ></ng-rating-bar>
+        </div>
+        <div class="col-2 text-white d-flex align-items-center">
+          <span>
+            {{ movie.vote_average | number:'1.1-2' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

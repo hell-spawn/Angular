@@ -1,0 +1,13 @@
+.poster {
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px rgba(255, 49, 49, 1);
+  margin: 5px;
+}
+
+.title-poster{
+  font-size: 16px;
+}
+
+.ng-star-bar{
+  font-size: 16px;
+}
