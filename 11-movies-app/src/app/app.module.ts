@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { MiniSlideShowComponent } from './component/mini-slide-show/mini-slide-show.component';
 
 @NgModule({
   declarations: [AppComponent],

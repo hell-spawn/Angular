@@ -1,1 +1,12 @@
-<p>search works!</p>
+<h1>Buscar peliculas <small>"{{ searchText }}"</small> </h1>
+<hr>
+<div class="row" *ngIf="movies.length > 0">
+  <div class="col">
+    <app-movies-poster-grid [movies]="movies"></app-movies-poster-grid>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <h2>No hay resultados</h2>
+  </div>
+</div>

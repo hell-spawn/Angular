@@ -1,0 +1,18 @@
+<div class="col">
+  <swiper [config]="config" #swiperCast >
+    <div class="swiper-wrapper" >
+      <div class="swiper-slide " *ngFor="let actor of cast">
+        <img [src]="actor.profile_path | poster" alt="{{actor.name}}" class="img-thumbnail">
+        <div class="text-white text-center">
+          <span>
+          {{ actor.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </swiper>
+</div>
+

@@ -1,1 +1,32 @@
-<p>movies works!</p>
+<div class="row" *ngIf="currentMovie">
+  <div class="col">
+    <img [src]="currentMovie.poster_path | poster" [alt]="currentMovie.title">
+  </div>
+  <div class="col">
+    <div class="row">
+      <h3>{{ currentMovie.title }}</h3>
+        <div class="col-10 text-white">
+          <ng-rating-bar class="ng-star-bar" [value]="currentMovie.vote_average" [ratingCount]="10" [styles]="{fontSize: '28px'}" [disabled]="true" ></ng-rating-bar>
+        </div>
+        <div class="col-2 text-white d-flex align-items-center">
+          <span>
+            {{ currentMovie.vote_average | number:'1.1-2' }}
+          </span>
+        </div>
+    </div>
+    <div class="row text-white">
+      <div class="col text-break">
+        {{ currentMovie.overview }}
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-6 d-grid gap-1">
+          <button class="btn btn-outline-primary btn-block" (click)="backPage()"> back </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="currentCast">
+    <app-mini-slide-show [cast]="currentCast" ></app-mini-slide-show>
+</div>

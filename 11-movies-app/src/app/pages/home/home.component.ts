@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Movie } from 'src/app/interfaces/NowPlayingMoviesResponse';
 import { MoviesService } from 'src/app/services/movies.service';
 
@@ -7,7 +7,7 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   constructor(private moviesService: MoviesService) {}
 
   public movies: Movie[] = [];
@@ -37,5 +37,9 @@ export class HomeComponent implements OnInit {
         this.gridMovies.push(...listMovies.results);
       });
     }
+  }
+
+  ngOnDestroy() {
+    this.moviesService.resetPageService();
   }
 }
